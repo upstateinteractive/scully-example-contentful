@@ -26,7 +26,7 @@
     "@scullyio/scully": "latest",
     "dotenv": "^8.2.0",
     "rxjs": "~6.5.4",
-    "scully-contentful": "0.0.1",
+    "scully-plugin-contentful": "0.0.1",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
   },

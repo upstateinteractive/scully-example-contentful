@@ -1,4 +1,4 @@
-require('scully-contentful');
+require('scully-plugin-contentful');
 require('dotenv').config();
 
 exports.config = {
