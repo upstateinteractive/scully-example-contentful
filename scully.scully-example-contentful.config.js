@@ -1,4 +1,4 @@
-// require('scully-plugin-contentful');
+require('scully-plugin-contentful');
 require('dotenv').config();
 
 exports.config = {
@@ -12,9 +12,9 @@ exports.config = {
         folder: "./blog"
       }
     },
-    '/article/:id': {
+    '/article/:articleId': {
       // Type is mandatory
-      type: 'json',
+      type: 'contentful',
       /**
        * Every parameter in the route must exist here
        */
