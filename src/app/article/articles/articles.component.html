@@ -2,7 +2,7 @@
 <section *ngIf="articles$ | async as articles">
   <ul>
     <li *ngFor="let article of articles">
-      <a [routerLink]="['article', article.id]">{{ article.title }}</a>
+      <a [routerLink]="[article.id]">{{ article.title }}</a>
     </li>
   </ul>
 </section>

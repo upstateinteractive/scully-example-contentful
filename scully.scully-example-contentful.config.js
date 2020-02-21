@@ -6,12 +6,6 @@ exports.config = {
   projectName: "scully-example-contentful",
   outDir: './dist/static',
   routes: {
-    '/blog/:slug': {
-      type: 'contentFolder',
-      slug: {
-        folder: "./blog"
-      }
-    },
     '/article/:articleId': {
       // Type is mandatory
       type: 'contentful',
