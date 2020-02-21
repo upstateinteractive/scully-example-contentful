@@ -1,1 +1,8 @@
-<p>articles works!</p>
+<h4>Articles</h4>
+<section *ngIf="articles$ | async as articles">
+  <ul>
+    <li *ngFor="let article of articles">
+      <a [routerLink]="['article', article.id]">{{ article.title }}</a>
+    </li>
+  </ul>
+</section>

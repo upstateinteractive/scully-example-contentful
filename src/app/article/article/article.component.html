@@ -1,1 +1,6 @@
-<p>article works!</p>
+<h4>Article details</h4>
+<section *ngIf="article$ | async as article">
+  <h4>{{ article.title }}</h4>
+
+  <p>{{ article.body }}</p>
+</section>
