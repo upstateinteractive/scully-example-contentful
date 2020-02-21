@@ -13,11 +13,9 @@ exports.config = {
        * Every parameter in the route must exist here
        */
       config: {
-        space: process.env.SPACE_ID,
+        spaceId: process.env.SPACE_ID,
         accessToken: process.env.ACCESS_TOKEN,
-        host: 'https://cdn.contentful.com',
-        environment: 'master',
-        proxy: null
+        contentType: 'article'
       }
     },
   }

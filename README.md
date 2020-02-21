@@ -25,3 +25,25 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+
+## CONFIG
+In the root of your project create a `CONTENTFUL.CONFIG.TS` file:
+
+```ts
+export const CONFIG = {
+  space: <YOUR_SPACE_ID>,
+  accessToken: <YOUR_ACCESS_TOKEN>,
+
+  contentTypeIds: {
+    article: 'article'
+  }
+}
+```
+
+In the root of your project create a `.env` file:
+
+```
+SPACE_ID=<YOUR_SPACE_ID>
+ACCESS_TOKEN=<YOUR_ACCESS_TOKEN>
+```

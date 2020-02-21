@@ -1,8 +1,8 @@
-import {HttpClient} from '@angular/common/http';
 import {Component, OnInit} from '@angular/core';
 import {isScullyGenerated, TransferStateService} from '@scullyio/ng-lib';
 import {of} from 'rxjs';
 import {catchError, shareReplay, tap} from 'rxjs/operators';
+import { ContentfulService } from 'src/app/contentful.service';
 
 @Component({
   selector: 'app-articles',
@@ -10,13 +10,17 @@ import {catchError, shareReplay, tap} from 'rxjs/operators';
   styleUrls: ['./articles.component.scss']
 })
 export class ArticlesComponent implements OnInit {
-  apiArticles$ = this.http.get<any>(`https://jsonplaceholder.typicode.com/posts`).pipe(
+  apiArticles$ = this.contentfulService.getArticles().pipe(
     catchError(() => of([] as any[])),
     shareReplay(1)
   );
-  constructor(private http: HttpClient, private transferState: TransferStateService) { }
+  constructor(
+    private transferState: TransferStateService,
+    private contentfulService: ContentfulService
+  ) { }
 
   ngOnInit(): void {
+    this.contentfulService.getArticles().subscribe(console.dir)
   }
 
   

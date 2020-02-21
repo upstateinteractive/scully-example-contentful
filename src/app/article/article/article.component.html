@@ -2,5 +2,11 @@
 <section *ngIf="article$ | async as article">
   <h4>{{ article.title }}</h4>
 
+  <p>{{ article.summary }}</p>
+  <p>{{ article.author }}</p>
+
+  <p>{{ article.date }}</p>
+
   <p>{{ article.body }}</p>
+
 </section>

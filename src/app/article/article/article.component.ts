@@ -3,7 +3,8 @@ import {Observable, of} from 'rxjs';
 import {pluck, shareReplay, switchMap, catchError, tap, filter, map} from 'rxjs/operators';
 import {isScullyGenerated, TransferStateService} from '@scullyio/ng-lib';
 import {ActivatedRoute} from '@angular/router';
-import {HttpClient} from '@angular/common/http';
+import { ContentfulService } from 'src/app/contentful.service';
+
 @Component({
   selector: 'app-article',
   templateUrl: './article.component.html',
@@ -13,7 +14,7 @@ export class ArticleComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private http: HttpClient,
+    private contentfulService: ContentfulService,
     private transferState: TransferStateService
   ) { }
 
@@ -23,13 +24,12 @@ export class ArticleComponent implements OnInit {
   articleId$: Observable<number> = this.route.params.pipe(
     pluck('articleId'),
     filter(val => ![undefined, null].includes(val)),
-    map(val => parseInt(val, 10)),
     shareReplay(1)
   );
 
   apiArticles$ = this.articleId$.pipe(
     switchMap(id =>
-      this.http.get<any>(`https://jsonplaceholder.typicode.com/posts/${id}`).pipe(
+      this.contentfulService.getArticle(id).pipe(
         catchError(() =>
           of({
             id,
