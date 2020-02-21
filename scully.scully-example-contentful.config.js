@@ -1,4 +1,4 @@
-require('scully-plugin-contentful');
+// require('scully-plugin-contentful');
 require('dotenv').config();
 
 exports.config = {
@@ -6,9 +6,15 @@ exports.config = {
   projectName: "scully-example-contentful",
   outDir: './dist/static',
   routes: {
+    '/blog/:slug': {
+      type: 'contentFolder',
+      slug: {
+        folder: "./blog"
+      }
+    },
     '/article/:id': {
       // Type is mandatory
-      type: 'contentful',
+      type: 'json',
       /**
        * Every parameter in the route must exist here
        */
